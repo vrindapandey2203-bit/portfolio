@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vrinda Pandey — Content & Communications Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --muted: #6b6b67;
+      --faint: #e8e7e2;
+      --cream: #f7f6f1;
+      --accent: #b5945a;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 4rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--faint);
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 4rem 5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .hero-inner { max-width: 700px; }
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.8rem;
+      opacity: 0; animation: fadeUp 0.7s 0.35s forwards;
+    }
+    .hero-links {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: background 0.22s, color 0.22s;
+    }
+    .btn:hover { background: var(--ink); color: var(--white); }
+    .btn-ghost { background: transparent; }
+
+    /* SECTIONS SHARED */
+    section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 3rem;
+      line-height: 1.15;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--faint);
+      margin: 0 4rem;
+    }
+
+    /* ABOUT */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    #about p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+    .tag {
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--faint);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+    .aside-block { margin-bottom: 2.2rem; }
+    .aside-block h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .aside-block p { font-size: 0.9rem; color: var(--muted); }
+
+    /* EXPERIENCE */
+    #experience .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2.5rem;
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--faint);
+    }
+    .exp-meta { padding-top: 0.15rem; }
+    .exp-date {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .exp-org {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .exp-desc { font-size: 0.93rem; color: var(--muted); margin-bottom: 1rem; }
+    .exp-desc ul { padding-left: 1.2rem; }
+    .exp-desc li { margin-bottom: 0.3rem; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip {
+      padding: 0.2rem 0.7rem;
+      background: var(--faint);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* PROJECTS */
+    #projects .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5px;
+      background: var(--faint);
+      border: 1.5px solid var(--faint);
+    }
+    .proj-card {
+      background: var(--cream);
+      padding: 2.2rem;
+    }
+    .proj-type {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .proj-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .proj-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem; }
+    .proj-award {
+      font-size: 0.78rem;
+      color: var(--ink);
+      border-top: 1px solid var(--faint);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    /* SKILLS */
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2.5rem;
+    }
+    .skill-group h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--faint);
+    }
+    .skill-group ul { list-style: none; }
+    .skill-group li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 0.25rem 0;
+    }
+    .skill-group li::before { content: "– "; color: var(--accent); }
+
+    /* CONTACT */
+    #contact { text-align: center; padding: 7rem 4rem; }
+    #contact h2 { margin-bottom: 0.8rem; }
+    #contact p { color: var(--muted); max-width: 460px; margin: 0 auto 2.5rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--faint);
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      #hero { padding: 7rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+      #about .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Vrinda Pandey</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Content & Communications Strategist</p>
+    <h1>Publishing, <em>Editorial</em><br>& Brand Storytelling</h1>
+    <p class="hero-desc">
+      I work at the intersection of content strategy, publishing operations, and audience engagement — translating ideas into clear narratives with lasting impact.
+    </p>
+    <div class="hero-links">
+      <a href="#experience" class="btn">View Experience</a>
+      <a href="mailto:vrindapandey2203@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <div class="about-grid">
+    <div>
+      <h2>A strategist who<br><em style="font-style:italic;color:var(--accent)">tells it straight.</em></h2>
+      <p>With experience spanning global publishing, peer-review management, editorial workflows, and digital content strategy, I bring both creative sensibility and process discipline to every project I touch.</p>
+      <p>My work is rooted in clarity — aligning brand voice, maintaining consistency, and ensuring that content reaches the right audience in the right form.</p>
+      <p>I value long-term impact over short-lived trends.</p>
+      <div class="tags">
+        <span class="tag">Editorial</span>
+        <span class="tag">Publishing</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Brand Communications</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Peer Review</span>
+        <span class="tag">Social Media</span>
+      </div>
+    </div>
+    <div>
+      <div class="aside-block">
+        <h4>Education</h4>
+        <p>B.A. (Hons.) Journalism & Mass Communication<br>Jiwaji University · 2021–2024 · 76%</p>
+      </div>
+      <div class="aside-block">
+        <h4>Languages</h4>
+        <p>English (Native/Bilingual)<br>Hindi (Native/Bilingual)</p>
+      </div>
+      <div class="aside-block">
+        <h4>Beyond Work</h4>
+        <p>Classically trained Dhrupad vocalist. Performed at the Tansen International Music Festival, Gwalior, for four consecutive years.</p>
+      </div>
+      <div class="aside-block">
+        <h4>Interests</h4>
+        <p>Reading novels · Singing · Cooking · Travel · Music</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <h2>Where I've worked</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-date">Jan 2026 – Present</p>
+        <p class="exp-org">Bannstudio Agency · Gwalior</p>
+      </div>
+      <div>
+        <p class="exp-role">Social Media Manager</p>
+        <div class="exp-desc">
+          <ul>
+            <li>Managed multi-client accounts across Instagram, Facebook, and LinkedIn</li>
+            <li>Developed and implemented social media strategies for brand visibility</li>
+            <li>Created content calendars, campaigns, and engagement strategies</li>
+            <li>Tracked metrics via Meta Analytics to optimise reach and performance</li>
+          </ul>
+        </div>
+        <div class="skill-chips">
+          <span class="chip">Social Media Strategy</span>
+          <span class="chip">Meta Analytics</span>
+          <span class="chip">Content Creation</span>
+          <span class="chip">Client Communication</span>
+          <span class="chip">Team Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-date">Aug – Dec 2025</p>
+        <p class="exp-org">Aptara Corporation · Noida<br><em style="font-style:italic;font-size:0.78rem;">(Client: IEEE, USA)</em></p>
+      </div>
+      <div>
+        <p class="exp-role">Editorial Assistant – Peer Review Specialist</p>
+        <div class="exp-desc">
+          <ul>
+            <li>Primary liaison between Aptara and IEEE, reporting to US-based managers</li>
+            <li>Led a team of 4 managing globally submitted research manuscripts</li>
+            <li>Validated manuscripts for compliance with IEEE publication guidelines</li>
+            <li>Conducted data analysis, quality checks, and progress reporting</li>
+          </ul>
+        </div>
+        <div class="skill-chips">
+          <span class="chip">Peer Review Management</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Quality Assurance</span>
+          <span class="chip">Team Leadership</span>
+          <span class="chip">Publishing Workflows</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-date">Jul 2024 – Jul 2025</p>
+        <p class="exp-org">TreeShade Books · Noida</p>
+      </div>
+      <div>
+        <p class="exp-role">Associate – Publishing Operations</p>
+        <div class="exp-desc">
+          <ul>
+            <li>Managed end-to-end publishing: editing, proofreading, typesetting for print & digital</li>
+            <li>Independently handled a full book project from manuscript to final print</li>
+            <li>Contributed to business development for Autumn Books (sister imprint)</li>
+            <li>Coordinated client acquisition, workflow optimisation, and cross-team collaboration</li>
+          </ul>
+        </div>
+        <div class="skill-chips">
+          <span class="chip">End-to-End Production</span>
+          <span class="chip">Project Management</span>
+          <span class="chip">Business Development</span>
+          <span class="chip">Editorial Coordination</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-date">Feb – May 2024</p>
+        <p class="exp-org">Zoringa · Bangalore</p>
+      </div>
+      <div>
+        <p class="exp-role">Digital Marketing Intern</p>
+        <div class="exp-desc">
+          <ul>
+            <li>Boosted client website traffic by <strong>30%</strong> through off-page SEO strategies</li>
+            <li>Conducted SEO audits, keyword research, and campaign performance tracking</li>
+            <li>Produced SEO-aligned content to improve search visibility</li>
+          </ul>
+        </div>
+        <div class="skill-chips">
+          <span class="chip">SEO</span>
+          <span class="chip">Content Marketing</span>
+          <span class="chip">Keyword Research</span>
+          <span class="chip">Web Analytics</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <h2>Selected work</h2>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <p class="proj-type">Short Film</p>
+      <h3>SAATHI</h3>
+      <p>A narrative film on the theme of Right to Education — developed storyline, screenplay, and original music. Also acted in the lead role.</p>
+      <div class="proj-award">🥉 3rd Place · AYAS Film Festival 2022</div>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Short Documentary</p>
+      <h3>FOR ONCE…</h3>
+      <p>A documentary on Climate Action and Sustainable Development. Contributed to research, scripting, and voiceover.</p>
+      <div class="proj-award">Submitted · UNESCO CEMCA Community Radio & Video Challenge, New Delhi 2022</div>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Institutional Film</p>
+      <h3>Infomercial Documentary</h3>
+      <p>Produced for Jiwaji University's NAAC Survey presentation. Researched, scripted, and produced the full documentary.</p>
+      <div class="proj-award">Official Institutional Submission</div>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Music Performance</p>
+      <h3>Tansen Samaroh</h3>
+      <p>Performed as a classically trained Dhrupad vocalist at the Tansen International Music Festival — one of India's most prestigious classical music events.</p>
+      <div class="proj-award">4 Consecutive Years · Gwalior</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <h2>What I bring</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Editorial & Publishing</h4>
+      <ul>
+        <li>Manuscript editing & proofreading</li>
+        <li>Peer-review coordination</li>
+        <li>Typesetting (print & digital)</li>
+        <li>End-to-end book production</li>
+        <li>Quality assurance & compliance</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Content & Brand</h4>
+      <ul>
+        <li>Content strategy</li>
+        <li>Brand voice & storytelling</li>
+        <li>Social media management</li>
+        <li>Content calendar planning</li>
+        <li>Audience engagement</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Digital Marketing</h4>
+      <ul>
+        <li>SEO (on-page & off-page)</li>
+        <li>Keyword research</li>
+        <li>Campaign tracking & reporting</li>
+        <li>Meta Analytics & Business Suite</li>
+        <li>Web analytics</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Management & Leadership</h4>
+      <ul>
+        <li>Cross-functional coordination</li>
+        <li>Stakeholder reporting</li>
+        <li>Client communication</li>
+        <li>Workflow optimisation</li>
+        <li>Business development</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2>Let's talk</h2>
+  <p>Open to opportunities in content strategy, publishing, editorial, and brand communications.</p>
+  <div class="contact-links">
+    <a href="mailto:vrindapandey2203@gmail.com" class="btn">vrindapandey2203@gmail.com</a>
+    <a href="https://www.linkedin.com/in/vrinda-pandey" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+  </div>
+</section>
+
+<footer>
+  <span>Vrinda Pandey · Content & Communications Strategist</span>
+  <span>Gwalior, India</span>
+</footer>
+
+</body>
+</html>
