@@ -262,6 +262,228 @@
       color: var(--muted);
     }
 
+    /* WORK SECTION */
+    #work { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+    .work-tabs {
+      display: flex; gap: 0; margin-bottom: 3rem;
+      border-bottom: 1px solid var(--faint);
+    }
+    .work-tab {
+      padding: 0.7rem 1.6rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      border: none; background: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .work-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+    .work-tab:hover { color: var(--ink); }
+
+    .work-panel { display: none; }
+    .work-panel.active { display: block; }
+
+    /* Campaign cards */
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5px;
+      background: var(--faint);
+      border: 1.5px solid var(--faint);
+      margin-bottom: 2rem;
+    }
+    .campaign-card {
+      background: var(--cream);
+      padding: 2rem;
+    }
+    .campaign-brand {
+      font-size: 0.68rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .campaign-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
+    .campaign-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem; }
+    .copy-lines {
+      border-top: 1px solid var(--faint);
+      padding-top: 0.9rem;
+      margin-top: 0.9rem;
+    }
+    .copy-lines p {
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+    .copy-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Writing cards */
+    .writing-list { display: flex; flex-direction: column; gap: 0; }
+    .writing-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--faint);
+    }
+    .writing-type-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 0.2rem;
+    }
+    .writing-item h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .writing-item p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .writing-excerpt {
+      background: var(--white);
+      border-left: 2px solid var(--accent);
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 0.8rem;
+    }
+    .work-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      margin-top: 0.6rem;
+    }
+    .work-link:hover { opacity: 0.7; }
+
+    /* VISUAL WORK LAYOUTS */
+    .work-subsection-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    /* Featured campaign: image + text side by side */
+    .featured-work { display: flex; flex-direction: column; gap: 0; }
+    .featured-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--faint);
+      padding: 2.5rem 0;
+    }
+    .featured-item--reverse { direction: rtl; }
+    .featured-item--reverse > * { direction: ltr; }
+    .featured-img-wrap {
+      overflow: hidden;
+      background: var(--faint);
+    }
+    .featured-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .featured-item:hover .featured-img-wrap img { transform: scale(1.02); }
+    .featured-info { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .featured-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+    }
+    .featured-info p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+
+    /* Content calendar grid */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: var(--faint);
+      border: 1.5px solid var(--faint);
+    }
+    .calendar-card { background: var(--cream); }
+    .calendar-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .calendar-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .calendar-card:hover .calendar-img-wrap img { transform: scale(1.03); }
+    .calendar-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,26,24,0.6);
+      display: flex; align-items: flex-end;
+      padding: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .calendar-card:hover .calendar-overlay { opacity: 1; }
+    .cal-copy { color: var(--white); font-style: italic; font-size: 0.88rem; line-height: 1.4; }
+    .calendar-info { padding: 1.2rem 1.4rem; }
+    .calendar-info p { font-size: 0.82rem; color: var(--muted); }
+
+    /* Stories grid */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--faint);
+      border: 1.5px solid var(--faint);
+    }
+    .story-card { background: var(--cream); padding-bottom: 1.2rem; }
+    .story-card img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .story-card:hover img { transform: scale(1.02); }
+    .story-card .campaign-brand { padding: 0 1rem; }
+    .story-card p:last-child { padding: 0 1rem; }
+
+    /* Book preview image */
+    .book-preview {
+      margin: 1rem 0;
+      border: 1px solid var(--faint);
+      max-width: 340px;
+      overflow: hidden;
+    }
+    .book-preview img { width: 100%; display: block; }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -273,9 +495,17 @@
       .nav-links { gap: 1.2rem; }
       #hero { padding: 7rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
+      #work { padding: 4rem 1.5rem; }
       .divider { margin: 0 1.5rem; }
       #about .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .writing-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .work-tabs { flex-wrap: wrap; }
+      .featured-item { grid-template-columns: 1fr; }
+      .featured-item--reverse { direction: ltr; }
+      .featured-info { padding: 1.2rem 0; }
+      .calendar-grid { grid-template-columns: 1fr; }
+      .stories-grid { grid-template-columns: 1fr; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
     }
   </style>
@@ -288,6 +518,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -304,7 +535,7 @@
     </p>
     <div class="hero-links">
       <a href="#experience" class="btn">View Experience</a>
-      <a href="mailto:vrindapandey2203@gmail.com" class="btn btn-ghost">Get in Touch</a>
+      <a href="/cdn-cgi/l/email-protection#95e3e7fcfbf1f4e5f4fbf1f0eca7a7a5a6d5f2f8f4fcf9bbf6faf8" class="btn btn-ghost">Get in Touch</a>
     </div>
   </div>
 </div>
@@ -461,6 +692,237 @@
 
 <hr class="divider">
 
+<!-- WORK -->
+<section id="work">
+  <p class="section-label">Work</p>
+  <h2>What I've made</h2>
+
+  <div class="work-tabs">
+    <button class="work-tab active" onclick="showTab('social')">Social Media & Campaigns</button>
+    <button class="work-tab" onclick="showTab('writing')">Writing & Editorial</button>
+  </div>
+
+  <!-- SOCIAL MEDIA TAB -->
+  <div class="work-panel active" id="tab-social">
+
+    <!-- FEATURED: Campaigns -->
+    <p class="work-subsection-label">Featured Campaigns</p>
+
+    <div class="featured-work">
+
+      <div class="featured-item">
+        <div class="featured-img-wrap">
+          <img src="images/kisna-womensday.jpg" alt="Women's Day Campaign for Kisna Diamonds" loading="lazy">
+        </div>
+        <div class="featured-info">
+          <p class="campaign-brand">Kisna Diamonds by Sadhna Jewellers</p>
+          <h3>Women's Day Campaign — #CelebrateHer</h3>
+          <p>Full campaign concept and copy positioned Kisna as a symbol of legacy, strength, and identity for the modern woman. Ran across Instagram feed and stories.</p>
+          <div class="copy-lines">
+            <span class="copy-label">Campaign copy written</span>
+            <p>"legacy isn't inherited. It's worn."</p>
+            <p>"shines like no other — the ultimate signature of her strength."</p>
+            <p>"she — Essence in diamond, Soul in style."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-item featured-item--reverse">
+        <div class="featured-img-wrap">
+          <img src="images/senco-valentine.jpg" alt="Valentine's Day Campaign for Senco Gold" loading="lazy">
+        </div>
+        <div class="featured-info">
+          <p class="campaign-brand">Senco Gold & Diamonds</p>
+          <h3>Valentine's Day Campaign — #SencoValentine</h3>
+          <p>Conceptualised and wrote the full campaign series — emotional, restrained luxury copy anchored in intimacy. Ran across feed, stories, and reels.</p>
+          <div class="copy-lines">
+            <span class="copy-label">Campaign copy written</span>
+            <p>"When presence is enough — crafted in gold."</p>
+            <p>"A promise in its quietest form."</p>
+            <p>"Where belief finds expression."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-item">
+        <div class="featured-img-wrap">
+          <img src="images/senco-akshay.jpg" alt="Akshay Tritiya Campaign Plan for Senco" loading="lazy">
+        </div>
+        <div class="featured-info">
+          <p class="campaign-brand">Senco Gold & Diamonds</p>
+          <h3>Akshay Tritiya — Full Campaign Plan</h3>
+          <p>End-to-end campaign plan with visual type mapping (static, motion, shoot), copy variants, voiceover scripts, offer explainers, and CTAs across all post formats.</p>
+          <div class="copy-lines">
+            <span class="copy-label">Campaign copy written</span>
+            <p>"Rituals that mark new beginnings — choose a shine that lasts forever."</p>
+            <p>"Gold that feels like destiny."</p>
+            <p>"Bloom into a new era of abundance."</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONTENT CALENDARS -->
+    <p class="work-subsection-label" style="margin-top:3.5rem;">Content Calendars & Feed Management</p>
+    <div class="calendar-grid">
+
+      <div class="calendar-card">
+        <div class="calendar-img-wrap">
+          <img src="images/senco-feed.jpg" alt="Senco Gold Instagram feed" loading="lazy">
+          <div class="calendar-overlay">
+            <p class="cal-copy">"This season, let your shine take centre stage."</p>
+          </div>
+        </div>
+        <div class="calendar-info">
+          <p class="campaign-brand">Senco Gold & Diamonds</p>
+          <p>Ongoing feed — festive posts, occasion launches, editorial stories, reels</p>
+        </div>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-img-wrap">
+          <img src="images/kisna-feed.jpg" alt="Kisna Diamonds Instagram feed" loading="lazy">
+          <div class="calendar-overlay">
+            <p class="cal-copy">"Step into forever with jewels that mirror your love."</p>
+          </div>
+        </div>
+        <div class="calendar-info">
+          <p class="campaign-brand">Kisna Diamonds by Sadhna Jewellers</p>
+          <p>Bridal, festive & occasion-led content calendar across feed and stories</p>
+        </div>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-img-wrap">
+          <img src="images/nikunj-motors.jpg" alt="Nikunj Motors Instagram feed" loading="lazy">
+          <div class="calendar-overlay">
+            <p class="cal-copy">Festive offers · RTO campaigns · Reels · Cricket content</p>
+          </div>
+        </div>
+        <div class="calendar-info">
+          <p class="campaign-brand">Nikunj Motors · Maruti Suzuki / NEXA</p>
+          <p>Automotive dealership — promotions, service content, festive campaigns</p>
+        </div>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-img-wrap">
+          <img src="images/acme-feed.jpg" alt="ACME Safety Shoes Instagram feed" loading="lazy">
+          <div class="calendar-overlay">
+            <p class="cal-copy">"Made for every point of impact."</p>
+          </div>
+        </div>
+        <div class="calendar-info">
+          <p class="campaign-brand">ACME Safety Shoes</p>
+          <p>B2B brand content — Safety Day, Republic Day, Women's Day, brand posts</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STORIES -->
+    <p class="work-subsection-label" style="margin-top:3.5rem;">Instagram Stories</p>
+    <div class="stories-grid">
+
+      <div class="story-card">
+        <img src="images/kisna-stories.jpg" alt="Kisna Diamonds Stories" loading="lazy">
+        <p class="campaign-brand" style="margin-top:0.8rem;">Kisna Diamonds</p>
+        <p style="font-size:0.82rem;color:var(--muted);">Romance, occasions & bridal moments</p>
+      </div>
+
+      <div class="story-card">
+        <img src="images/senco-stories.jpg" alt="Senco Gold Stories" loading="lazy">
+        <p class="campaign-brand" style="margin-top:0.8rem;">Senco Gold</p>
+        <p style="font-size:0.82rem;color:var(--muted);">Festive & emotion-led story series</p>
+      </div>
+
+      <div class="story-card">
+        <img src="images/acme-stories.jpg" alt="ACME Safety Shoes Stories" loading="lazy">
+        <p class="campaign-brand" style="margin-top:0.8rem;">ACME Safety Shoes</p>
+        <p style="font-size:0.82rem;color:var(--muted);">Safety awareness & brand storytelling</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- WRITING TAB -->
+  <div class="work-panel" id="tab-writing">
+    <div class="writing-list">
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">Brand Article · Long-form</p></div>
+        <div>
+          <h3>ACME Safety Shoes — Brand Positioning Piece</h3>
+          <p>A long-form brand article establishing ACME's identity, trust legacy, and industrial credibility. Written for LinkedIn and brand communications. Covers 30+ years of history, client roster (Tata, Reliance, Bosch, JSW, Cipla, Nestlé), and the philosophy behind the brand.</p>
+          <div class="writing-excerpt">"At ACME, we don't just manufacture safety shoes — we safeguard the backbone of India's industrial ecosystem."</div>
+        </div>
+      </div>
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">Brand Article · Thought Leadership</p></div>
+        <div>
+          <h3>Safety Is Not a Policy — It's a Responsibility</h3>
+          <p>A workplace safety thought-leadership piece for ACME — making the case for safety culture over compliance checklists. Structured for LinkedIn, B2B decision-makers, and HR audiences.</p>
+          <div class="writing-excerpt">"When people feel safe, they work with greater focus, efficiency, and pride in their work."</div>
+        </div>
+      </div>
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">Brand Article · Women's Day</p></div>
+        <div>
+          <h3>Empowerment Begins With Protection — ACME × IWD</h3>
+          <p>An International Women's Day piece for ACME addressing gender inclusivity in industrial environments — safety gear, workplace flexibility, and bias in industrial sectors. Purposeful, grounded, and action-oriented.</p>
+          <div class="writing-excerpt">"A secure step is not a luxury — it's a necessity."</div>
+        </div>
+      </div>
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">Brand Article · SEO-aligned</p></div>
+        <div>
+          <h3>When Should Safety Shoes Be Replaced?</h3>
+          <p>A practical, SEO-structured guide for ACME's B2B audience — covering grip wear, toe damage, cushioning loss, and replacement cycles. Written to rank and educate simultaneously.</p>
+          <div class="writing-excerpt">"A safety shoe doesn't stop protecting suddenly — it deteriorates quietly. The key is to act before that decline turns into risk."</div>
+        </div>
+      </div>
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">LinkedIn Articles</p></div>
+        <div>
+          <h3>Articles — Published on LinkedIn</h3>
+          <p>Long-form articles written for brand and personal thought leadership, published on LinkedIn.</p>
+          <a href="https://docs.google.com/document/d/1P0jzWwUUJtDgvjDJ54edgEj61l_uAZnaRRIu6sspxqY/edit?usp=sharing" target="_blank" class="work-link">Read Articles →</a>
+        </div>
+      </div>
+
+      <div class="writing-item">
+        <div><p class="writing-type-label">Editorial Sample · Book</p></div>
+        <div>
+          <h3>Fighters Fight — by Sairam Subramanian</h3>
+          <p>Sole editorial responsibility for this novel — editing, proofreading, and typesetting from manuscript to final print-ready format. A thriller set in London involving a global cyber heist. Published via TreeShade Books.</p>
+          <div class="book-preview">
+            <img src="images/book-sample.jpg" alt="Fighters Fight book editorial sample" loading="lazy">
+          </div>
+          <div class="writing-excerpt">"The Golden Tulip, hailed as the most secure building in London, had plunged into darkness as if the bright shining sun was engulfed by an evil eclipse…"</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.work-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.work-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+<hr class="divider">
+
 <!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">Projects</p>
@@ -556,15 +1018,5 @@
   <h2>Let's talk</h2>
   <p>Open to opportunities in content strategy, publishing, editorial, and brand communications.</p>
   <div class="contact-links">
-    <a href="mailto:vrindapandey2203@gmail.com" class="btn">vrindapandey2203@gmail.com</a>
-    <a href="https://www.linkedin.com/in/vrinda-pandey" target="_blank" class="btn btn-ghost">LinkedIn →</a>
-  </div>
-</section>
-
-<footer>
-  <span>Vrinda Pandey · Content & Communications Strategist</span>
-  <span>Gwalior, India</span>
-</footer>
-
-</body>
-</html>
+    <a href="/cdn-cgi/l/email-protection#097f7b60676d687968676d6c703b3b393a496e64686065276a6664" class="btn"><span class="__cf_email__" data-cfemail="4630342f28222736272822233f7474767506212b272f2a6825292b">[email&#160;protected]</span></a>
+    <a href="https://www.linkedin.com/in/vrinda-pandey" target="_bla
